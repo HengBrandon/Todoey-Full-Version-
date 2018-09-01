@@ -1,18 +1,16 @@
 //
 //  Item.swift
-//  Todoey
+//  
 //
-//  Created by Heng Brandon on 8/29/18.
-//  Copyright © 2018 Heng Brandon. All rights reserved.
+//  Created by Heng Brandon on 8/31/18.
 //
 
 import Foundation
+import RealmSwift
 
-class Item: Codable{
-    var title:String = ""
-    var done:Bool = false
-//    init(title:String, done:Bool) {
-//        self.title = title
-//        self.done = done
-//    }
+class Item : Object{
+    @objc dynamic var title: String = ""
+    @objc dynamic var done:Bool = false
+    @objc dynamic var dateCreated:Date?
+    var parentsCategory = LinkingObjects(fromType: Category.self, property: "items")
 }
